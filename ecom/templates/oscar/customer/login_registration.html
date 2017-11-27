@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+
+        <title>Tedallal</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, initial-scale=1">
+
+        <meta name="description" content="">
+
+        <meta name="author" content="Tedallal">
+
+
+
+        <!-- Le styles -->
+
+        <link href="bootstrap.min.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="validationEngine.jquery.css" type="text/css"/>
+
+        <link href="style.css" rel="stylesheet">
+
+
+
+
+
+        <!--[if lt IE 9]>
+
+          <script src="js/html5.js"></script>
+
+        <![endif]-->
+
+
+
+    </head>
+
+
+
+
+
+
+
+
+
+
+
+    <body>
+
+
+
+
+
+
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="span12 topmenu hidden-phone">
+
+                    <ul>
+
+                        <li>
+
+                            <button type="button" class="fconnect">fconnect</button> OR <a href="#">Login</a>
+
+                        </li>
+
+                        <li>|</li>
+
+                        <li><button class="userbutt" type="button">My Account</button></li>
+
+                        <li>|</li>
+
+                        <li><button class="cartbutt" type="button">My Cart</button></li>
+
+                        <li>|</li>
+
+                        <li><a href="#">Wishlist</a></li>
+
+                        <li>|</li>
+
+                        <li>
+
+                              Currency:
+
+                              <div class="topselect">
+
+                                <select>
+
+                                    <option>KD</option>
+
+                                    <option>USD</option>
+
+                                    <option>AUD</option>
+
+                                    <option>EUR</option>
+
+                                </select>
+
+                              </div>
+                        </li>
+
+                        <li>|</li>
+
+                        <li class="arabictxt"><a href="#">عربى</a></li>
+
+                    </ul>
+
+                </div>
+
+                <!--#################### phone menu ###############-->
+
+                <div class="span12 topmenu visible-phone">
+
+                    <ul>
+
+                        <li>
+
+                            <a href="#">Login</a>
+
+                        </li>
+
+                        <li>|</li>
+
+                        <li><button class="userbutt" type="button"></button></li>
+
+                        <li>|</li>
+
+                        <li><button class="cartbutt" type="button"></button></li>
+
+                        <li>|</li>
+
+                        <li>
+
+                              <div class="topselect">
+
+                                <select>
+
+                                    <option>KD</option>
+
+                                    <option>USD</option>
+
+                                    <option>AUD</option>
+
+                                    <option>EUR</option>
+
+                                </select>
+
+                              </div>
+
+                        </li>
+
+                        <li>|</li>
+
+                        <li class="arabictxt"><a href="#">عربى</a></li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="container shadow">
+
+
+
+
+
+            <div class="row">
+
+                <div class="span12 headrow">
+
+                    <div class="row">
+
+                        <div class="span2">
+
+                            <div class="logo"><a href="#"><img src="img/logo.png" alt="Tedallal"/></a></div>
+
+                        </div>
+
+                        <div class="span10">
+
+                            <div class="navbarwrap">
+
+                                    <div class="navbar">
+
+                                        <div class="navbar-inner">
+
+                                            <div class="container">
+
+
+
+                                                <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+
+                                                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse-mainmenu">
+
+                                                <span class="icon-search"></span>
+
+                                                </a>
+
+
+
+                                                <!-- Be sure to leave the brand out there if you want it shown -->
+
+
+
+                                                <!-- Everything you want hidden at 940px or less, place within here -->
+
+                                                <ul class="nav">
+
+                                                    <li><a href="#">Home</a></li>
+
+                                                    <li class="divider-vertical"></li>
+
+                                                    <li class="dropdown">
+
+                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories</a>
+
+                                                        <ul class="dropdown-menu">
+
+                                                            <li>
+
+                                                                <ul>
+
+                                                                    <li><a href="#">Categorie 1</a></li>
+
+                                                                    <li><a href="#">Categorie 2</a></li>
+
+                                                                    <li><a href="#">Categorie 3</a></li>
+
+                                                                    <li><a href="#">Categorie 4</a></li>
+
+                                                                </ul>
+
+                                                                <ul class="rightdropmenu">
+
+                                                                    <li><a href="#">Categorie 5</a></li>
+
+                                                                    <li><a href="#">Categorie 6</a></li>
+
+                                                                    <li><a href="#">Categorie 7</a></li>
+
+                                                                    <li><a href="#">Categorie 8</a></li>
+
+                                                                </ul>
+
+                                                            </li>
+
+                                                        </ul>
+
+                                                    </li>
+
+                                                    <li class="divider-vertical"></li>
+
+                                                    <li class="dropdown">
+
+                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Brands</a>
+
+                                                        <ul class="dropdown-menu">
+
+                                                            <li>
+
+                                                                <ul>
+
+                                                                    <li><a href="#">Brand 1</a></li>
+
+                                                                    <li><a href="#">Brand 2</a></li>
+
+                                                                    <li><a href="#">Brand 3</a></li>
+
+                                                                    <li><a href="#">Brand 4</a></li>
+
+                                                                </ul>
+
+                                                                <ul class="rightdropmenu">
+
+                                                                    <li><a href="#">Brand 5</a></li>
+
+                                                                    <li><a href="#">Brand 6</a></li>
+
+                                                                    <li><a href="#">Brand 7</a></li>
+
+                                                                    <li><a href="#">Brand 8</a></li>
+
+                                                                </ul>
+
+                                                            </li>
+
+                                                        </ul>
+
+                                                    </li>
+
+                                                    <li class="divider-vertical"></li>
+
+                                                </ul>
+
+                                                <div class="nav-collapse collapse nav-collapse-mainmenu ">
+
+                                                <!-- .nav, .navbar-search, .navbar-form, etc -->
+
+                                                        <form class="navbar-search pull-right">
+
+                                                            <input type="text"  placeholder="Search products"> <br class="visible-phone"/>
+
+
+
+                                                                <select name="categories" class="cform">
+
+                                                                    <option value="1">All Categories</option>
+
+                                                                    <option value="2">Saiful Leon</option>
+
+                                                                    <option value="3">Ismail Hossain</option>
+
+                                                                    <option value="4">Akkas Ali</option>
+
+                                                                    <option value="5">Arnold Jackson</option>
+
+                                                                </select>
+
+
+
+                                                            <button type="button" class="nav-searchbutt">Search</button>
+
+                                                        </form>
+
+                                                </div>
+
+
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="row">
+
+                        <div class="span10 offset2">
+
+                            <div class="bcrumb">
+
+                                <a href="#">Home</a> / <a href="#"><span class="bcrumbtxtlarge">Computers &AMP; Tablets</span></a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+
+            <div class="row maincurve"><div class="span12"></div></div>
+
+
+
+            <!--*********************************************** main content area ************************************ -->
+
+
+
+            <div class="row">
+
+                <div class="span12 maincontentrow loginpagecontent">
+
+                    <form class="validform">
+
+                        <div class="row">
+
+                            <div class="span3 offset1">
+
+                                <div class="module">
+
+                                    <h1>Log In</h1>
+
+                                    Email Address<span>*</span> <br/>
+
+                                    <input type="text" class="validate[required,custom[email]]" data-prompt-position="topLeft"/> <br/>
+
+                                    Password<span>*</span> <br/>
+
+                                    <input type="password" class="validate[required]" data-prompt-position="topLeft"/> <br/>
+
+                                    <a href="#">I've forgotten my password</a> <br/>
+
+                                    <button type="button" class="bluebutt">Log In</button>
+
+                                </div>
+
+                            </div>
+
+                            <div class="span6 offset1">
+
+                                <div class="module">
+
+                                    <div class="row">
+
+                                        <div class="span6">
+
+                                            <h1>Register</h1>
+
+                                            Email Address<span>*</span> <br/>
+
+                                            <input type="text" class="validate[required,custom[email]]" data-prompt-position="topLeft"/> <br/>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div class="span3">
+
+                                            Password<span>*</span> <br/>
+
+                                            <input id="regpass" type="password" class="validate[required]" data-prompt-position="topLeft"/> <br/>
+
+                                        </div>
+
+                                        <div class="span3 loginpageconfirmpass">
+
+                                            Confirm Password<span>*</span> <br/>
+
+                                            <input type="password" class="validate[required,equals[regpass]]" data-prompt-position="topLeft"/> <br/>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div class="span6">
+
+                                            <br/>
+
+                                            <button type="button" class="bluebutt">Register</button>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                    <div class="social">
+
+                    	<h1>Or Sign In with</h1>
+
+                        <a class="facebook" href="#" title=""></a>
+
+                        <a class="twitter" href="#" title=""></a>
+
+                        <a class="instagram" href="#" title=""></a>
+
+                        <a class="googleplus" href="#" title=""></a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+            <!--***************************************************** footer ************************************ -->
+
+            <div class="row">
+
+                <div class="span12 footrow">
+
+
+
+                    <div class="row">
+
+                        <div class="span3">
+
+                            <div class="footbox footbox1st">
+
+                                <h3>Information</h3>
+
+                                    <ul>
+
+                                        <li><a href="#">Contact Us</a></li>
+
+                                        <li><a href="#">Delivery</a></li>
+
+                                        <li><a href="#">Returns</a></li>
+
+                                        <li><a href="#">Terms &AMP; Conditions</a></li>
+
+                                        <li><a href="#">Privacy Policy</a></li>
+
+                                        <li><a href="#">About Us</a></li>
+
+                                    </ul>
+
+                            </div>
+
+                        </div>
+
+                        <div class="span3">
+
+                            <div class="footbox">
+
+                                <h3>Your Account</h3>
+
+                                <ul>
+
+                                    <li><a href="#">Log in</a></li>
+
+                                    <li><a href="#">Create an Account</a></li>
+
+                                    <li><a href="#">Order History</a></li>
+
+                                    <li><a href="#">Wishlist</a></li>
+
+                                    <li><a href="#">Cancel Account</a></li>
+
+                                    <li><a href="#">Something else</a></li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                        <div class="span3">
+
+                            <div class="footbox">
+
+                                <h3>Contacts</h3>
+
+                                <address>
+
+                                    Tedallal Co. <br/>
+
+                                    Salmiya, Kuwait. <br/>  <br/>
+
+                                    Tel : +568-568-6549863 <br/>
+
+                                    Email : <span><a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">mail@tedallal.com</a></span>
+
+                                </address>
+
+                            </div>
+
+                        </div>
+
+                        <div class="span3">
+
+                            <div class="footbox">
+
+                                <h3>Social Network</h3>
+
+                                <ul class="socialico">
+
+                                    <li><button type="button" class="tw">twitter</button><li>
+
+                                    <li><button type="button" class="fb">facebook</button><li>
+
+                                    <li><button type="button" class="inst">instagram</button><li>
+
+                                    <li><button type="button" class="gplus">google-plus</button><li>
+
+                                </ul>
+
+                                <h3>Newsletter</h3>
+
+                                <div class="newsletter"><input type="text"  placeholder="Enter Your Email"><button type="button">Find</button></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="row">
+
+                        <div class="span12">
+
+                            <div class="copyright">
+
+                                &COPY; 2013 Tedallal Co. ALL RIGHTS RESERVED.
+
+                                <a href="#"><img src="img/logo.png"></a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="span12 spacerrow"></div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Le javascript
+
+        ================================================== -->
+
+        <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+
+        <script src="js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="js/jquery.custom.forms-0.5.js"></script>
+
+
+
+        <script src="js/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
+
+        <script type="text/javascript" src="js/date.js"></script>
+
+
+
+        <!--=========== javascript call to execute==============-->
+
+        <script type="text/javascript">
+
+        $(function() {
+
+                $('form.navbar-search').customForm();
+
+        });
+
+        </script>
+
+        <script type="text/javascript">
+
+        $(document).ready(function(){
+
+            $(".validform").validationEngine();
+
+           });
+
+        </script>
+
+
+
+    </body>
+
+</html>
