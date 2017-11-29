@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-
+{% load currency_filters %}
+{% load thumbnail %}
+{% load product_tags %}
+{% load i18n %}
+{%  load staticfiles %}
 <html lang="en">
-{% load staticfiles %}
+
     <head>
 
         <meta charset="utf-8">
@@ -20,15 +24,7 @@
 
         <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
-        <link rel="stylesheet" type="text/css" href="{% static 'css/elastislide.css'%}" />
-
-        <link rel="Stylesheet" type="text/css" href="{% static 'css/wowslider.css' %}" />
-
-        <link href="{% static 'css/style.css' %}" rel="stylesheet" />
-
-
-
-
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
 
 
@@ -72,7 +68,7 @@
 
                         <li>
 
-                            <button type="button" class="fconnect">fconnect</button> OR <a href="accounts/login">Login</a>
+                            <button type="button" class="fconnect">fconnect</button> OR <a href="#">Login</a>
 
                         </li>
 
@@ -82,7 +78,7 @@
 
                         <li>|</li>
 
-                        <li><button class="cartbutt" type="button"><a href="/basket/">My Cart</a></button></li>
+                        <li><button class="cartbutt" type="button">My Cart</button></li>
 
                         <li>|</li>
 
@@ -128,7 +124,7 @@
 
                         <li>
 
-                            <a href="accounts/login">Login</a>
+                            <a href="#">Login</a>
 
                         </li>
 
@@ -200,7 +196,7 @@
 
                         <div class="span2">
 
-                            <div class="logo"><a href="#"><img src="{% static 'img/logo.png' %}" alt="Tedallal"/></a></div>
+                            <div class="logo"><a href="#"><img src="img/logo.png" alt="Tedallal"/></a></div>
 
                         </div>
 
@@ -324,17 +320,31 @@
 
                                                 <!-- .nav, .navbar-search, .navbar-form, etc -->
 
+                                                        <form class="navbar-search pull-right">
 
-                                                              {% load i18n %}
+                                                            <input type="text"  placeholder="Search products"> <br class="visible-phone"/>
 
-<form method="get" action="{% url 'search:search' %}" class="navbar-search pull-right">
-    <div class="form-group">
-        {{ search_form.q }}
-    </div>
-    <input type="submit" value="{% trans "Search" %}" class="btn btn-default" />
-</form>
                                                             
 
+                                                                <select name="categories" class="cform">
+
+                                                                    <option value="1">All Categories</option>
+
+                                                                    <option value="2">Saiful Leon</option>
+
+                                                                    <option value="3">Ismail Hossain</option>
+
+                                                                    <option value="4">Akkas Ali</option>
+
+                                                                    <option value="5">Arnold Jackson</option>
+
+                                                                </select>
+
+                                                            
+
+                                                            <button type="button" class="nav-searchbutt">Search</button>
+
+                                                        </form>
 
                                                 </div>
 
@@ -388,207 +398,252 @@
 
                 <div class="span12 maincontentrow loginpagecontent">
 
-                    <div class="innerwrap">
-
-                       <h1>Offers</h1>
-					   
-					   <p><b>Buy 3 For 600 KD Offer</b></p>
-					   
-					   <p>this is the trio offer</p>
-
-                    </div>
+                    
 
                     <div class="row">
 
+                        <div class="span3">
 
+                            <div class="innerwrap cat-sidemenu">
+
+                                <div class="accordion" id="accordion2">
+
+                                    <div class="accordion-group">
+
+                                        <div class="accordion-heading">
+
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+
+                                        Categories
+
+                                        </a>
+
+                                        </div>
+
+                                        <div id="collapseOne" class="accordion-body collapse in">
+
+                                            <ul>
+
+                                                <li>
+
+                                                    <button class="cat-accordionbutt"  data-toggle="collapse" data-target="#laptops">Laptops (120)</button>
+
+                                                    <ul id="laptops" class="collapse">
+
+                                                        <li>
+
+                                                            <button class="cat-accordionbutt"  data-toggle="collapse" data-target="#netbooks">Netbooks (70)</button>
+
+                                                            <ul  id="netbooks" class="collapse">
+
+                                                                <li><button class="cat-accordionbutt">HP mini (50)</button></li>
+
+                                                                <li><button class="cat-accordionbutt">Asus Epc (20)</button></li>
+
+                                                            </ul>
+
+                                                        </li>
+
+                                                        <li>
+
+                                                            <button class="cat-accordionbutt"  data-toggle="collapse" data-target="#ultrabook">Ultrabook (5)</button>
+
+                                                            <ul  id="ultrabook" class="collapse">
+
+                                                                <li><button class="cat-accordionbutt">Ultra1 (50)</button></li>
+
+                                                                <li><button class="cat-accordionbutt">Ultra2 (20)</button></li>
+
+                                                            </ul>
+
+                                                        </li>
+
+                                                    </ul>
+
+                                                </li>
+
+                                                <!--===============-->
+
+                                                <li>
+
+                                                    <button class="cat-accordionbutt"  data-toggle="collapse" data-target="#smartphone">Smartphone (50)</button>
+
+                                                    <ul id="smartphone" class="collapse">
+
+                                                        <li>
+
+                                                            <button class="cat-accordionbutt"  data-toggle="collapse" data-target="#xperia">Sony Xperia (10)</button>
+
+                                                            <ul  id="xperia" class="collapse">
+
+                                                                <li><button class="cat-accordionbutt">Xperia Z (50)</button></li>
+
+                                                                <li><button class="cat-accordionbutt">Xperia L (20)</button></li>
+
+                                                            </ul>
+
+                                                        </li>
+
+                                                        <li>
+
+                                                            <button class="cat-accordionbutt"  data-toggle="collapse" data-target="#iphone">iphone (5)</button>
+
+                                                            <ul  id="iphone" class="collapse">
+
+                                                                <li><button class="cat-accordionbutt">iphone4 (50)</button></li>
+
+                                                                <li><button class="cat-accordionbutt">iphone5 (20)</button></li>
+
+                                                            </ul>
+
+                                                        </li>
+
+                                                    </ul>
+
+                                                </li>
+
+                                            </ul>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="accordion-group">
+
+                                        <div class="accordion-heading">
+
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+
+                                        Brands
+
+                                        </a>
+
+                                        </div>
+
+                                        <div id="collapseTwo" class="accordion-body collapse">
+
+                                        <div class="accordion-inner">
+
+                                            <ul>
+
+                                                <li><button class="cat-accordionbutt">Sony</button></li>
+
+                                                <li><button class="cat-accordionbutt">Apple</button></li>
+
+                                                <li><button class="cat-accordionbutt">Samsung</button></li>
+
+                                                <li><button class="cat-accordionbutt">Asus</button></li>
+
+                                                <li><button class="cat-accordionbutt">Fujitsu</button></li>
+
+                                            </ul>
+
+                                        </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                
+
+                            </div>
+
+                        </div>
 
                         
 
-                        <div class="span6 offset1 productdetailselect sliderright">
-
-                            <div class="innerwrap">
-
-
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    
-
-                    
-
-                    <div class="row"> 
-
-
-
-                    <div class="row">
-
-                        <div  class="span12">
-
-                            <div class="productslider offers-slider">
-
-                                <!-- Elastislide Carousel -->
-
-				<ul id="carousel" class="elastislide-list">
-
-                                    <li>
-
-                                        <a href="#"><img src="{% static 'img/content/product4.jpg' %}" alt="image01" /></a> <br/>
-
-                                        <a href="#"><h3>Galaxy S4</h3></a> 
-
-                                        <p>performance and desigh. taken right to the edge!</p> 
-
-                                        <span>KD 255</span>
-
-                                        <div class="tags"><img src="{% static 'img/new.png' %}"/></div>
-										
-										<div><button type="button" class="orangebutt">Order Now</button></div>
-
-                                    </li>
-
-                                    <li>
-
-                                        <a href="#"><img src="{% static 'img/content/product5.jpg' %}" alt="image01" /></a> <br/>
-
-                                        <a href="#"><h3>Galaxy S4</h3></a> 
-
-                                        <p>performance and desigh. taken right to the edge!</p> 
-
-                                        <del>KD 300</del> <span>KD 255</span>
-
-                                        <div class="tags"><img src="{% static 'img/sale.png' %}"/></div>
-										
-										<div><button type="button" class="orangebutt">Order Now</button></div>
-
-                                    </li>
-
-                                    <li>
-
-                                        <a href="#"><img src="{% static 'img/content/product6.jpg' %}" alt="image01" /></a> <br/>
-
-                                        <a href="#"><h3>Galaxy S4</h3></a> 
-
-                                        <p>performance and desigh. taken right to the edge!</p> 
-
-                                        <span>KD 255</span>    
-
-										<div><button type="button" class="orangebutt">Order Now</button></div>
-
-                                    </li>
-
-                                    <li>
-
-                                        <a href="#"><img src="{% static 'img/content/product4.jpg' %}" alt="image01" /></a> <br/>
-
-                                        <a href="#"><h3>Galaxy S4</h3></a> 
-
-                                        <p>performance and desigh. taken right to the edge!</p> 
-
-                                        <span>KD 255</span>
-										
-										<div><button type="button" class="orangebutt">Order Now</button></div>
-
-                                    </li>
-
-                                    <li>
-
-                                        <a href="#"><img src="{% static 'img/content/product5.jpg' %}" alt="image01" /></a> <br/>
-
-                                        <a href="#"><h3>Galaxy S4</h3></a> 
-
-                                        <p>performance and desigh. taken right to the edge!</p> 
-
-                                        <span>KD 255</span>
-										
-										<div><button type="button" class="orangebutt">Order Now</button></div>
-
-                                    </li>
-
-                                    <li>
-
-                                        <a href="#"><img src="{% static 'img/content/product6.jpg' %}" alt="image01" /></a> <br/>
-
-                                        <a href="#"><h3>Galaxy S4</h3></a> 
-
-                                        <p>performance and desigh. taken right to the edge!</p> 
-
-                                        <span>KD 255</span>
-										
-										<div><button type="button" class="orangebutt">Order Now</button></div>
-
-                                    </li>
-
-                                    <li>
-
-                                        <a href="#"><img src="{% static 'img/content/product4.jpg' %}" alt="image01" /></a> <br/>
-
-                                        <a href="#"><h3>Galaxy S4</h3></a> 
-
-                                        <p>performance and desigh. taken right to the edge!</p> 
-
-                                        <span>KD 255</span>
-										
-										<div><button type="button" class="orangebutt">Order Now</button></div>
-
-                                    </li>
-
-                                    <li>
-
-                                        <a href="#"><img src="{% static 'img/content/product5.jpg' %}" alt="image01" /></a> <br/>
-
-                                        <a href="#"><h3>Galaxy S4</h3></a> 
-
-                                        <p>performance and desigh. taken right to the edge!</p> 
-
-                                        <span>KD 255</span>
-										
-										<div><button type="button" class="orangebutt">Order Now</button></div>
-
-                                    </li>
-
-                                    <li>
-
-                                        <a href="#"><img src="{% static 'img/content/product6.jpg' %}" alt="image01" /></a> <br/>
-
-                                        <a href="#"><h3>Galaxy S4</h3></a> 
-
-                                        <p>performance and desigh. taken right to the edge!</p> 
-
-                                        <span>KD 255</span>
-										
-										<div><button type="button" class="orangebutt">Order Now</button></div>
-
-                                    </li>
-
-				</ul>
-
-				<!-- End Elastislide Carousel -->
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    
-
-                </div>
-
+                        <div class="span9">
+
+                            <h2>Search Results For "Nokia"</h2>
+
+                                <ul class="thumbnails">
+
+                                    
+
+                                    <li class="span3">
+
+                                        <div class="thumbnail cat-thumb">
+
+                                           {% block column_left %}
+    {% if has_facets %}
+        <h4>{% trans "Refine your search" %}</h4>
+        <dl>
+            {% for field, data in facet_data.items %}
+                {% if data.results %}
+                    {% include 'search/partials/facet.html' with name=data.name items=data.results %}
+                {% endif %}
+            {% endfor %}
+        </dl>
+    {% endif %}
+{% endblock %}
+
+{% block headertext %}
+    {% blocktrans with q=query %}
+        Products matching "{{ q }}"
+    {% endblocktrans %}
+{% endblock %}
+
+{% block content %}
+    <form method="get" action="." class="form-horizontal">
+        {# Render other search params as hidden inputs #}
+        {% for value in selected_facets %}
+            <input type="hidden" name="selected_facets" value="{{ value }}" />
+        {% endfor %}
+        <input type="hidden" name="q" value="{{ search_form.q.value }}" />
+
+        {% if paginator.count %}
+            {% if paginator.num_pages > 1 %}
+                {% blocktrans with start=page.start_index end=page.end_index num_results=paginator.count %}
+                    Found <strong>{{ num_results }}</strong> results, showing <strong>{{ start }}</strong> to <strong>{{ end }}</strong>.
+                {% endblocktrans %}
+            {% else %}
+                {% blocktrans count num_results=paginator.count %}
+                    Found <strong>{{ num_results }}</strong> result.
+                {% plural %}
+                    Found <strong>{{ num_results }}</strong> results.
+                {% endblocktrans %}
+            {% endif %}
+            <div class="pull-right">
+                {% include "partials/form_field.html" with field=search_form.sort_by %}
             </div>
+        {% else %}
+            <p>
+                {% trans "Found <strong>0</strong> results." %}
+                {% if suggestion %}
+                    {% url 'search:search' as search_url %}
+                    {% blocktrans %}
+                        Did you mean <a href="{{ search_url }}?q={{ suggestion }}">"{{ suggestion }}"</a>?
+                    {% endblocktrans %}
+                {% endif %}
+            </p>
+        {% endif %}
+    </form>
 
-        </div>
+    {% if page.object_list %}
+        <section>
+            <div>
+                <ol class="row">
+                    {% for result in page.object_list %}
+                        <li class="col-xs-6 col-sm-4 col-md-3 col-lg-3">{% render_product result.object %}</li>
+                    {% endfor %}
+                </ol>
+                {% include "partials/pagination.html" with page_obj=page %}
+            </div>
+        </section>
+    {% endif %}
 
-            
+{% endblock %}
 
-            
 
-            
+                                        </div>
 
-            
+                                    </li>
+
+                                    
+
+                                  
 
             <!--***************************************************** footer ************************************ -->
 
@@ -712,7 +767,7 @@
 
                                 &COPY; 2013 Tedallal Co. ALL RIGHTS RESERVED.
 
-                                <a href="#"><img src="{% static 'img/logo.png' %}"></a>
+                                <a href="#"><img src="img/logo.png"></a>
 
                             </div>
 
@@ -778,27 +833,11 @@
 
         ================================================== -->
 
-        <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+        <script type="text/javascript" src="{% static 'js/jquery-1.8.2.min.js' %}"></script>
 
-        <script src="{% static 'js/bootstrap.min.js' %}"></script>
-
-        
-
-        <script src="{% static 'js/modernizr.custom.17475.js' %}"></script>
-
-        <script type="text/javascript" src="{% static 'js/jquerypp.custom.js' %}"></script>
-
-        <script type="text/javascript" src="{% static 'js/jquery.elastislide.js' %}"></script>
-
-        
+        <script src="{% static 'js/bootstrap.min.js' %}" ></script>
 
         <script type="text/javascript" src="{% static 'js/jquery.custom.forms-0.5.js' %}"></script>
-
-        
-
-        <script type="text/javascript" src="{% static 'js/wowslider.js' %}"></script>
-
-        <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
 
         
 
@@ -812,31 +851,7 @@
 
         });
 
-        
-
-        $(function() {
-
-                $('.productdetailselect').customForm();
-
-        });
-
-        
-
         </script>
-
-        
-
-        <script type="text/javascript">
-
-			
-
-		$( '#carousel' ).elastislide();
-
-			
-
-	</script>
-
-        
 
        
 
