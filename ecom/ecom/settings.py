@@ -15,8 +15,7 @@ from oscar.defaults import *
 from oscar import OSCAR_MAIN_TEMPLATE_DIR
 from oscar import get_core_apps
 
-
-
+from oscar import get_core_apps
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -47,13 +46,30 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
+    'django.contrib.sites',
     'django.contrib.staticfiles',
     'django.contrib.flatpages',
+
     'compressor',
     'widget_tweaks',
     'debug_toolbar',
+    'social_django',
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
+    # 'allauth.socialaccount.providers.google',
 
-    ] + get_core_apps()
+
+
+]+ get_core_apps(
+    [
+        'applications.customer',
+        'applications.promotions',
+        'applications.catalogue'
+    ]
+)
+
+
 
 SITE_ID = 1
 MIDDLEWARE = [
@@ -67,7 +83,7 @@ MIDDLEWARE = [
     'oscar.apps.basket.middleware.BasketMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
-
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 INTERNAL_IPS='127.0.0.1'
 
@@ -96,12 +112,14 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.template.context_processors.i18n',
                 'django.contrib.messages.context_processors.messages',
-
                 'oscar.apps.search.context_processors.search_form',
                 'oscar.apps.promotions.context_processors.promotions',
                 'oscar.apps.checkout.context_processors.checkout',
                 'oscar.apps.customer.notifications.context_processors.notifications',
                 'oscar.core.context_processors.metadata',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -121,7 +139,12 @@ WSGI_APPLICATION = 'ecom.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'db.sqlite3',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+        'ATOMIC_REQUESTS': True,
     }
 }
 HAYSTACK_CONNECTIONS = {
@@ -148,6 +171,19 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+AUTHENTICATION_BACKENDS = (
+    'oscar.apps.customer.auth_backends.EmailBackend',
+    'django.contrib.auth.backends.ModelBackend',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+    # 'allauth.account.auth_backends.AuthenticationBackend',
+    'social_core.backends.instagram.InstagramOAuth2',
+
+
+)
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
@@ -170,16 +206,86 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_ROOT = 'media'
-MEDIA_URL = '/media/'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+MEDIA_ROOT = 'images'
+MEDIA_URL = '/images/'
+
+from oscar import OSCAR_MAIN_TEMPLATE_DIR
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'templates/oscar'),
+            OSCAR_MAIN_TEMPLATE_DIR
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.i18n',
+                'django.contrib.messages.context_processors.messages',
+
+                'oscar.apps.search.context_processors.search_form',
+                'oscar.apps.promotions.context_processors.promotions',
+                'oscar.apps.checkout.context_processors.checkout',
+                'oscar.apps.customer.notifications.context_processors.notifications',
+                'oscar.core.context_processors.metadata',
+            ],
+        },
+    },
+]
+
+#Search Backend
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+    },
+}
+
+OSCAR_INITIAL_ORDER_STATUS = 'Pending'
+OSCAR_INITIAL_LINE_STATUS = 'Pending'
+OSCAR_ORDER_STATUS_PIPELINE = {
+    'Pending': ('Being processed', 'Cancelled',),
+    'Being processed': ('Processed', 'Cancelled',),
+    'Cancelled': (),
+    'Delivered':(),
+}
+
+INTERNAL_IPS='127.0.0.1'
+
+STATICFILES_DIRS = [
+  os.path.join(BASE_DIR, "staticfiles")
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+#EMAIL CONFIGURATIONS
+
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
+EMAIL_PORT=587
+EMAIL_HOST_USER = 'thereportersnews@gmail.com'
+EMAIL_HOST_PASSWORD = 'reportersnews'
+EMAIL_USE_TLS = True
+LOGIN_REDIRECT_URL = 'catalogue:index'
 
-# EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
-# EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+#Social login
+SOCIAL_AUTH_FACEBOOK_KEY  = '169543936969905'
+SOCIAL_AUTH_FACEBOOK_SECRET = '54577cfea9c81bae1425674e5adabaad'
 
-EMAIL_HOST_USER = 'benshaa.say1@gmail.com'
-EMAIL_HOST_PASSWORD = 'namsantower'
+SOCIAL_AUTH_TWITTER_KEY='7T77CFpF6DKMJgBWFM7mQ1Jj2'
+SOCIAL_AUTH_TWITTER_SECRET='1FaBXg61P7FSnni2J8K7qW8wQbGEtMa5lWTk1McK3NwU1wqxjE'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '568684096634-guvda30dj3me25c312e2iq7g6ml6cfev.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'y_JLrDGsu4pr2vCZWibqGHlQ'
+
+SOCIAL_AUTH_INSTAGRAM_KEY = 'c10e3122ede647fba41f47768b7be106'
+SOCIAL_AUTH_INSTAGRAM_SECRET = 'd9f770a7da874556a3eaf3041b44fd61'
+
+
