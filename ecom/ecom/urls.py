@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from oscar.app import application
+from django.conf.urls.static import static
+import ecom
 
 urlpatterns = [
     url(r'^i18n/', include('django.conf.urls.i18n')),
@@ -23,6 +25,17 @@ urlpatterns = [
     # The Django admin is not officially supported; expect breakage.
     # Nonetheless, it's often useful for debugging.
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^oauth/', include('social_django.urls', namespace='social')),
+    # url(r'^accounts/', include('allauth.urls')),
 
     url(r'', include(application.urls)),
-]
+]+ static(ecom.settings.MEDIA_URL, document_root=ecom.settings.MEDIA_ROOT)
+
+from django.conf import settings
+from django.conf.urls import include, url
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns
