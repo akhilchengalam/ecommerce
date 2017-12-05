@@ -9,11 +9,24 @@
     <article class="product_pod">
         {% block product_image %}
             <div >
-                {% with image=product.primary_image %}
-                    {% thumbnail image.original "x155" upscale=False as thumb %}
-                        <a href="{{ product.get_absolute_url }}"><img src="{{ thumb.url }}" alt="{{ product.get_title }}" class="thumbnail"></a>
-                    {% endthumbnail %}
-                {% endwith %}
+                {# Primary : {{ product.primary_image.original  }}#}
+{#                {% if product.primary_image.original.url   %}#}
+                    {% with image2=product.primary_image %}
+                        {% if image2.original.url %}
+                            {% thumbnail image2.original "x155" upscale=False as thumb %}
+                                <a href="{{ product.get_absolute_url }}">
+                                        <img src="{{ thumb.url }}"
+                                         alt="{{ product.get_title }}" class="thumbnail"></a>
+                            {% endthumbnail %}
+                        {% else %}
+                             <a href="{{ product.get_absolute_url }}">
+                                <img src="images/image_not_found.jpg"
+                                         alt="{{ product.get_title }}" class="thumbnail"></a>
+                        {% endif %}
+                    {% endwith %}
+
+{#                {% endif %}#}
+
             </div>
         {% endblock %}
 
@@ -30,7 +43,9 @@
         {% endblock %}
 
         {% block product_title %}
-            <h3><a href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">{{ product.get_title|truncatewords:4 }}</a></h3>
+            <h3><a href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">
+                {{ product.get_title|truncatewords:4 }}
+            </a></h3>
         {% endblock %}
 
         {% block product_price %}

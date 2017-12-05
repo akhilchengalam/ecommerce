@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
-    'django.contrib.sites',
     'django.contrib.staticfiles',
     'django.contrib.flatpages',
 
@@ -210,6 +209,7 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = 'images'
 MEDIA_URL = '/images/'
+OSCAR_MISSING_IMAGE_URL = MEDIA_URL + 'image_not_found.jpg'
 
 from oscar import OSCAR_MAIN_TEMPLATE_DIR
 
@@ -287,5 +287,3 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'y_JLrDGsu4pr2vCZWibqGHlQ'
 
 SOCIAL_AUTH_INSTAGRAM_KEY = 'c10e3122ede647fba41f47768b7be106'
 SOCIAL_AUTH_INSTAGRAM_SECRET = 'd9f770a7da874556a3eaf3041b44fd61'
-
-

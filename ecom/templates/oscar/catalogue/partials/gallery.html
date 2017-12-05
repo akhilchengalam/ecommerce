@@ -1,14 +1,19 @@
-{% load thumbnail %}
 {% load i18n %}
+{% load thumbnail %}
 {% load staticfiles %}
 {% load basket_tags %}
 {% load display_tags %}
 {% load purchase_info_tags %}
 
+{% load history_tags %}
+{% load currency_filters %}
+{% load reviews_tags %}
+{% load product_tags %}
+
 {% with all_images=product.images.all %}
     {# use length rather then count as the images get queried anyways #}
 
-    {% if all_images|length > 1 %}
+    {% if all_images|length >= 1 %}
         <!---------------------------------------------------------------->
         <div  id="product_gallery" class="carousel slide">
 
@@ -58,6 +63,23 @@
                             </div>
                         </div>
                     </div>
+                {% else %}
+        <b style="color: #002a80">Only one image to show</b><br />
+        <div id="product_gallery" class="carousel">
+            <div class="thumbnail">
+                <div class="carousel-inner">
+                    <div class="item active">
+                    {% with image=product.primary_image %}
+                        {% thumbnail image.original "440x400" upscale=False as thumb %}
+                            <img src="{{ thumb.url }}" alt="{{ product.get_title }}" />
+                        {% endthumbnail %}
+                    {% endwith %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
              <!--====================================================================-->
                     <div class="span6 offset1 productdetailselect sliderright">
                         <div class="innerwrap">
@@ -87,23 +109,7 @@
         </div>
         <!---------------------------------------------------------------->
 
-    {% else %}
-        <b style="color: #002a80">Only one image to show</b><br />
-        <div id="product_gallery" class="carousel">
-            <div class="thumbnail">
-                <div class="carousel-inner">
-                    <div class="item active">
-                    {% with image=product.primary_image %}
-                        {% thumbnail image.original "440x400" upscale=False as thumb %}
-                            <img src="{{ thumb.url }}" alt="{{ product.get_title }}" />
-                        {% endthumbnail %}
-                    {% endwith %}
-                    </div>
-                </div>
-            </div>
-        </div>
 
-    {% endif %}
 {% endwith %}
 
 
