@@ -8,7 +8,7 @@
 {% with all_images=product.images.all %}
     {# use length rather then count as the images get queried anyways #}
 
-    {% if all_images|length > 1 %}
+
         <!---------------------------------------------------------------->
         <div  id="product_gallery" class="carousel slide">
 
@@ -21,6 +21,7 @@
                             <div id="wowslider-container1">
                                 <div class="ws_images">
                                     <div class="carousel-inner" role="listbox">
+                                    {% if all_images|length > 1 %}
                                         {% for image in all_images %}
                                             <div class="item {% if forloop.first %}active{% endif %}">
                                                 {% thumbnail image.original "440x400" upscale=False as thumb %}
@@ -28,6 +29,13 @@
                                                 {% endthumbnail %}
                                             </div>
                                         {% endfor %}
+                                    {% else %}
+                                        {% with image=product.primary_image %}
+                                            {% thumbnail image.original "440x400" upscale=False as thumb %}
+                                                <img src="{{ thumb.url }}" alt="{{ product.get_title }}" />
+                                            {% endthumbnail %}
+                                        {% endwith %}
+                                    {% endif %}
                                     </div>
                                     <a class="carousel-control left" href="#product_gallery" role="button" data-slide="prev">
                                     <span class="icon-prev fa-stack fa-lg" aria-hidden="true">
@@ -58,7 +66,7 @@
                             </div>
                         </div>
                     </div>
-             <!--====================================================================-->
+             <!--===========================================================================-->
                     <div class="span6 offset1 productdetailselect sliderright">
                         <div class="innerwrap">
                             <h1 style="color: #002a80">{{ product.get_title }}</h1>
@@ -87,23 +95,6 @@
         </div>
         <!---------------------------------------------------------------->
 
-    {% else %}
-        <b style="color: #002a80">Only one image to show</b><br />
-        <div id="product_gallery" class="carousel">
-            <div class="thumbnail">
-                <div class="carousel-inner">
-                    <div class="item active">
-                    {% with image=product.primary_image %}
-                        {% thumbnail image.original "440x400" upscale=False as thumb %}
-                            <img src="{{ thumb.url }}" alt="{{ product.get_title }}" />
-                        {% endthumbnail %}
-                    {% endwith %}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    {% endif %}
 {% endwith %}
 
 
