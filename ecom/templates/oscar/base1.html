@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+ {% load i18n %}
 <html>
 
 <html lang="{{ LANGUAGE_CODE|default:"en-gb" }}" class="no-js lt-ie9 lt-ie8 lt-ie7">
@@ -59,7 +60,7 @@
 
                         <li>|</li>
 
-                        <li><a href="#">Wishlist</a></li>
+                        <li><a href="/accounts/wishlists/4e60c6/">Wishlist</a></li>
 
 
                         {#                        <li>#}
@@ -292,10 +293,9 @@
 
                                                 <!-- .nav, .navbar-search, .navbar-form, etc -->
 
-                                                        <form class="navbar-search pull-right">
+                                                        <form method="get" action="{% url 'search:search' %}" class="navbar-search pull-right">
 
-                                                            <input type="text"  placeholder="Search products"> <br class="visible-phone"/>
-
+                                                                {{ search_form.q }}
 
 
                                                                 <select name="categories" class="cform">
@@ -314,7 +314,8 @@
 
 
 
-                                                            <button type="button" class="nav-searchbutt">Search</button>
+
+                                                             <input type="submit" class="nav-searchbutt" value="{% trans "Search" %}" class="btn btn-default" />
 
                                                         </form>
 

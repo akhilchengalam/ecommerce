@@ -52,7 +52,7 @@
                                 {% endwith %}
 
 
-                            <td>    <h3><a href="{{ product.get_absolute_url }}">{{ line.description }}5u6ru7t</a></h3></td>
+                            <td>    <h3><a href="{{ product.get_absolute_url }}">{{ line.description }}</a></h3></td>
 
                                  {% if form.errors %}error{% endif %}
                                    <td>     {% render_field form.quantity class+="form-control" %}
@@ -119,37 +119,65 @@
         </table>
     {% endblock %}
 
-  <div class="row basketbillrow">
+                <div class="row basketbillrow">
 
-                        <div class="span4">
+                    <div class="span4">
+                        <div class="innerwrap vouchercode">
+
+                            <span>Voucher/Promo Code</span> <br/> <br/>
+
+                            <div class="btn-group">
+
+                                <a class="graybutt  voucherbutt dropdown-toggle" data-toggle="dropdown" href="#"> I have a voucher code </a>
+
+                                <ul class="dropdown-menu">
+
+                                    <li>Enter your voucher/promo code</li>
+
+                                    <li><input type="text"/> </li>
+
+                                    <li class="divider"></li>
+
+                                    <li> <button class="orangebutt orgfix1" type="button">Add Voucher</button> or <button class="barebutt" type="button">Cancel</button></li>
+
+                                </ul>
+
                             </div>
 
-              <div class="span6 offset2">
+                        </div>
 
-                            <div class="innerwrap">
+                    </div>
 
 
-        {% block baskettotals %}
-            <div class="col-sm-6">
-                <div class="sub-header">
-                    <h2>{% trans "Totals" %}</h2>
+
+                    <div class="span6 offset2" style="float: right">
+
+                        <div class="innerwrap">
+
+
+                            {% block baskettotals %}
+
+                                <!--<div class="sub-header">-->
+                                    <!--&lt;!&ndash;<h2>{% trans "Totals" %}</h2>&ndash;&gt;-->
+                                <!--</div>-->
+                                {% include 'basket/partials/basket_totals.html' with editable=1 %}
+
+                            {% endblock baskettotals %}
+                        </div>
+                    </div>
                 </div>
-                {% include 'basket/partials/basket_totals.html' with editable=1 %}
-            </div>
-        {% endblock baskettotals %}
-    </div>
-</div></div>
 
-    {% block formactions %}
-        <div class="form-group clearfix">
-            <div class="row">
-                <div class="col-sm-4 col-sm-offset-8">
-                    <a href="{% url 'checkout:index' %}" class="btn btn-lg btn-primary btn-block">{% trans "Proceed to checkout" %}</a>
-                </div>
-            </div>
-        </div>
-    {% endblock formactions %}
-
+    <!--{% block formactions %}-->
+        <!--<div class="form-group clearfix">-->
+            <!--<div class="row">-->
+                <!--<div class="col-sm-4 col-sm-offset-8">-->
+                    <!--<a href="{% url 'checkout:index' %}" class="orangebutt">{% trans "Proceed to checkout" %}</a>-->
+                <!--</div>-->
+                <!--&lt;!&ndash;<tr><td colspan="2"><button type="button" class="orangebutt">Proceed to checkout</button></td></tr>&ndash;&gt;-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--{% endblock formactions %}-->
+<br />
 {% else %}
     {% block emptybasket %}
         <p>
