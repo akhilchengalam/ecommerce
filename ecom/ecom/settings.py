@@ -64,7 +64,8 @@ INSTALLED_APPS = [
     [
         'applications.customer',
         'applications.promotions',
-        'applications.catalogue'
+        'applications.catalogue',
+        'applications.checkout'
     ]
 )
 
@@ -287,3 +288,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'y_JLrDGsu4pr2vCZWibqGHlQ'
 
 SOCIAL_AUTH_INSTAGRAM_KEY = 'c10e3122ede647fba41f47768b7be106'
 SOCIAL_AUTH_INSTAGRAM_SECRET = 'd9f770a7da874556a3eaf3041b44fd61'
+
+# STRIPE PAYMENTS
+STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY", "pk_test_gYIZf6nxtoniU4MoeDp1pxIO")
+STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", "sk_test_WavMdrbcZ0wKVPESux9si1Vc")

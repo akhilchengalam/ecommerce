@@ -54,12 +54,13 @@
     <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredIdentifiers">
         <value>
-          <list size="5">
+          <list size="6">
             <item index="0" class="java.lang.String" itemvalue="library.urls.django" />
             <item index="1" class="java.lang.String" itemvalue="books.models.django" />
             <item index="2" class="java.lang.String" itemvalue="books.models.autoslug" />
             <item index="3" class="java.lang.String" itemvalue="books.views.django" />
             <item index="4" class="java.lang.String" itemvalue="books.models.modelimages" />
+            <item index="5" class="java.lang.String" itemvalue="applications.checkout.signals" />
           </list>
         </value>
       </option>
