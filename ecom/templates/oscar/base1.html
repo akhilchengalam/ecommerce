@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load i18n %}
 <html>
 
 <html lang="{{ LANGUAGE_CODE|default:"en-gb" }}" class="no-js lt-ie9 lt-ie8 lt-ie7">
@@ -29,7 +30,12 @@
 
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
-
+<style>
+    .thumbnail{
+        border: 0;
+        box-shadow: none;
+    }
+</style>
 </head>
 <body>
         <div class="container">
@@ -43,7 +49,7 @@
 
                             <li>
 
-                                <button type="button" class="fconnect">fconnect</button> OR <a href="{% url 'customer:login' %}">Login</a>
+                                <a href="{% url 'social:begin' 'facebook' %}" class="facebook" style="padding-left: 200px"></a> OR <a href="{% url 'customer:login' %}">Login</a>
 
                             </li>
                         {% endif %}
@@ -167,7 +173,7 @@
 
                         <div class="span2">
 
-                            <div class="logo"><a href="#"><img src="img/logo.png" alt="Tedallal"/></a></div>
+                            <div class="logo"><a href="{% url 'catalogue:index' %}"><img src="{% static '/img/logo.png' %}" alt="Tedallal"/></a></div>
 
                         </div>
 
@@ -289,35 +295,37 @@
 
                                                 <div class="nav-collapse collapse nav-collapse-mainmenu ">
 
-                                                <!-- .nav, .navbar-search, .navbar-form, etc -->
+                                               <!-- .nav, .navbar-search, .navbar-form, etc -->
 
-                                                        <form class="navbar-search pull-right">
+                                                       <form method="get" action="{% url 'search:search' %}" class="navbar-search pull-right">
 
-                                                            <input type="text"  placeholder="Search products"> <br class="visible-phone"/>
-
-
-
-                                                                <select name="categories" class="cform">
-
-                                                                    <option value="1">All Categories</option>
-
-                                                                    <option value="2">Saiful Leon</option>
-
-                                                                    <option value="3">Ismail Hossain</option>
-
-                                                                    <option value="4">Akkas Ali</option>
-
-                                                                    <option value="5">Arnold Jackson</option>
-
-                                                                </select>
+                                                               {{ search_form.q }}
 
 
+                                                               <select name="categories" class="cform">
 
-                                                            <button type="button" class="nav-searchbutt">Search</button>
+                                                                   <option value="1">All Categories</option>
 
-                                                        </form>
+                                                                   <option value="2">Saiful Leon</option>
 
-                                                </div>
+                                                                   <option value="3">Ismail Hossain</option>
+
+                                                                   <option value="4">Akkas Ali</option>
+
+                                                                   <option value="5">Arnold Jackson</option>
+
+                                                               </select>
+
+
+
+
+
+
+                                                            <input type="submit" class="nav-searchbutt" value="{% trans "Search" %}" class="btn btn-default" />
+
+                                                       </form>
+
+                                               </div>
 
 
 
@@ -349,13 +357,9 @@
 
                     </div>
 
-
-
                 </div>
 
             </div>
-
-
 
             <div class="row maincurve"><div class="span12"></div></div>
 
@@ -372,19 +376,11 @@
             <div class="row">
 
                 <div class="span12 footrow">
-
-
-
                     <div class="row">
-
                         <div class="span3">
-
                             <div class="footbox footbox1st">
-
                                 <h3>Information</h3>
-
                                     <ul>
-
                                         <li><a href="#">Contact Us</a></li>
 
                                         <li><a href="#">Delivery</a></li>
@@ -396,11 +392,8 @@
                                         <li><a href="#">Privacy Policy</a></li>
 
                                         <li><a href="#">About Us</a></li>
-
                                     </ul>
-
                             </div>
-
                         </div>
 
                         <div class="span3">
