@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+
 {% load i18n %}
 <html>
 
@@ -38,6 +39,7 @@
 </style>
 </head>
 <body>
+{% block header %}
         <div class="container">
 
             <div class="row">
@@ -64,7 +66,7 @@
 
                         <li>|</li>
 
-                        <li><a href="#">Wishlist</a></li>
+                        <li><a href="/accounts/wishlists/4e60c6/">Wishlist</a></li>
 
 
                         {#                        <li>#}
@@ -301,7 +303,6 @@
 
                                                                {{ search_form.q }}
 
-
                                                                <select name="categories" class="cform">
 
                                                                    <option value="1">All Categories</option>
@@ -363,7 +364,7 @@
 
             <div class="row maincurve"><div class="span12"></div></div>
 
-
+{% endblock %}
 
             <!--*********************************************** main content area ************************************ -->
 
@@ -372,6 +373,7 @@
 
 
             <!--***************************************************** footer ************************************ -->
+{% block footer %}
 
             <div class="row">
 
@@ -557,6 +559,6 @@
 	</script>
 <!-----------------------------------------------Javascript----------------------------------------------------->
 
-
+{% endblock %}
 </body>
 </html>

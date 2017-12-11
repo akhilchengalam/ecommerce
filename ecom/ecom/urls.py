@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from oscar.app import application
+from ecom import settings
 from django.conf.urls.static import static
 import ecom
 
@@ -29,7 +30,8 @@ urlpatterns = [
     # url(r'^accounts/', include('allauth.urls')),
 
     url(r'', include(application.urls)),
-]+ static(ecom.settings.MEDIA_URL, document_root=ecom.settings.MEDIA_ROOT)
+    url(r'static/', include('django.contrib.staticfiles.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT, )
 
 from django.conf import settings
 from django.conf.urls import include, url

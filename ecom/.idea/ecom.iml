@@ -11,7 +11,11 @@
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
+<<<<<<< HEAD
+    <orderEntry type="inheritedJdk" />
+=======
     <orderEntry type="jdk" jdkName="Python 3.4.3 virtualenv at ~/akhil/ecom/oscar" jdkType="Python SDK" />
+>>>>>>> a71b31f3218b4f58ad7d6fde7fc4f8edb64cf9ca
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">
