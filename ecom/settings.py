@@ -92,7 +92,6 @@ DATABASES = {
         'PASSWORD': '19d410bc083e32cb877ffc46be9cd455d9edd821f2b417f5f3fd39d848a85310',
         'HOST': 'ec2-54-83-40-208.compute-1.amazonaws.com',
         'PORT': '5432',
-        'ATOMIC_REQUESTS': True,
     }
 }
 
@@ -124,8 +123,6 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',
     # 'allauth.account.auth_backends.AuthenticationBackend',
     'social_core.backends.instagram.InstagramOAuth2',
-
-
 )
 
 
