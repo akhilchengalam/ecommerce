@@ -44,10 +44,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'debug_toolbar',
     'social_django',
-    # 'allauth',
-    # 'allauth.account',
-    # 'allauth.socialaccount',
-    # 'allauth.socialaccount.providers.google',
+    'whitenoise',
 
 
 
