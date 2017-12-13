@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 {% load static %}
 {% load category_tags %}
+        {% load wishlist_tags %}
+
 {% load i18n %}
 <html>
 
@@ -72,7 +74,16 @@
 
                         {% if user.is_authenticated %}
                             <li>|</li>
-                            <li><a href="/accounts/wishlists/c1390c/">Wishlist</a></li>
+                               <li>
+                                   {% with wishlists=user.wishlists.all %}
+                                   {% for wishlist in wishlists %}
+                                        {% blocktrans with name=wishlist.name url=wishlist.get_absolute_url %}
+                                            <a href="{{ url }}">wishlist</a>
+                                        {% endblocktrans %}
+                                   {% endfor %}
+                                   {% endwith %}
+                                </li>
+
                             <li>|</li>
                             <li><a id="logout_link" href="{% url 'customer:logout' %}"><b class="logout">Logout</b></a></li>
 
@@ -89,7 +100,7 @@
 
                         <li>
 
-                            <a href="#">Login</a>
+                            <a href="{% url 'customer:login' %}">Login</a>
 
                         </li>
 
@@ -299,7 +310,7 @@
 
                                         <li><a href="#">Privacy Policy</a></li><br/>
 
-                                        <li><a href="#">About Us</a></li>
+                                        <li><a href="/about_us/">About Us</a></li><br />
                                     </ul>
                             </div>
                         </div>
@@ -312,18 +323,18 @@
 
                                 <ul>
 
-                                    <li><a href="#">Log in</a></li><br/>
 
-                                    <li><a href="#">Create an Account</a></li><br/>
+                                    <li><a href="{% url 'customer:login' %}">Log in</a></li><br />
 
-                                    <li><a href="#">Order History</a></li><br/>
+                                    <li><a href="{% url 'customer:login' %}">Create an Account</a></li><br />
 
-                                    <li><a href="#">Wishlist</a></li><br/>
+                                    <li><a href="#">Order History</a></li><br />
 
-                                    <li><a href="#">Cancel Account</a></li><br/>
+                                    <li><a href="/accounts/wishlists/50d0d7/">Wishlist</a></li><br />
 
-                                    <li><a href="#">Something else</a></li><br/>
+                                    <li><a href="#">Cancel Account</a></li><br />
 
+                                    <li><a href="#">Something else</a></li><br />
                                 </ul>
 
                             </div>

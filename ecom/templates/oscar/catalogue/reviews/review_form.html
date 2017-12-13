@@ -1,13 +1,17 @@
-{% extends "catalogue/detail.html" %}
+{% extends "base1.html" %}
 {% load i18n %}
 
-{% block product_review %}
+{% block content %}
+         <div class="row">
+
+    <div class=" maincontentrow " style="padding-left: 156px;">
+
     <div id="addreview" class="review_add">
         <form id="add_review_form" method="post" action="./#addreview">
             <fieldset>
                 <legend>{% trans "Leave a product review" %}</legend>
                 {% csrf_token %}
-                
+
                 {% include 'partials/form_field.html' with field=form.title %}
 
                 <div class="reviewrating form-group {% if form.score.errors %}error{% endif %}">
@@ -49,4 +53,5 @@
             </fieldset>
         </form>
     </div>
+        </div></div>
 {% endblock %}

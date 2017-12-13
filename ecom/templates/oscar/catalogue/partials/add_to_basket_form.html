@@ -26,7 +26,5 @@
             <button type="submit" class="bluebutt blufix1" data-loading-text="{% trans 'Submitting...' %}">{% trans "Notify me" %}</button>
         </form>
     {% endif %}
-    {% iffeature "wishlists" %}
         {% include "catalogue/partials/add_to_wishlist.html" %}
-    {% endiffeature %}
 {% endif %}
