@@ -1,6 +1,5 @@
 media/*
 *.pyc
-*.db
 .idea/*
 .DS_Store
 *.rdb
