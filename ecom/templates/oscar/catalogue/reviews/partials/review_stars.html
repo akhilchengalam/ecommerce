@@ -22,9 +22,8 @@
 {% endif %}
 
 {% if product|is_review_permitted:user %}
-    <button id="write_review" href="{% url 'catalogue:reviews-add' product_slug=product.slug product_pk=product.id %}#addreview"
-            class="bluebutt blfix1">
-        {% trans "Write a review" %}
+    <button id="write_review" class="bluebutt blfix1"><a href="{% url 'catalogue:reviews-add' product_slug=product.slug product_pk=product.id %}#addreview">        {% trans "Write a review" %}
+</a>
     </button>
 {% endif %}
 </p>

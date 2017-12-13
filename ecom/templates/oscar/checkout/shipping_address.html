@@ -1,18 +1,11 @@
-{% extends "checkout/checkout.html" %}
+
+{% extends "base1.html" %}
+
+{% block content %}
 {% load i18n %}
-
-{% block title %}
-    {% trans "Shipping address" %} | {{ block.super }}
-{% endblock %}
-
-{% block checkout_nav %}
-    {% include 'checkout/nav.html' with step=1 %}
-{% endblock %}
-
-{% block checkout_title %}{% trans "Shipping address" %}{% endblock %}
-
-{% block order_contents %}{% endblock %}
-
+        <div>    {% include 'checkout/nav.html' with step=2 %}
+</div>
+<br />
 {% block shipping_address %}
 <div class="col-sm-12">
     <div class="sub-header">
@@ -86,3 +79,4 @@
 
 {% block shipping_method %}{% endblock %}
 {% block payment_method %}{% endblock %}
+{% endblock %}
