@@ -12,9 +12,6 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 from oscar.defaults import *
-from oscar import OSCAR_MAIN_TEMPLATE_DIR
-from oscar import get_core_apps
-
 from oscar import get_core_apps
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -32,24 +29,18 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-LOGIN_REDIRECT_URL = '/accounts/profile/'
-LOGIN_URL = '/accounts/login/'
-
 
 # Application definition
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.sites',
     'django.contrib.messages',
+    'django.contrib.sites',
     'django.contrib.staticfiles',
     'django.contrib.flatpages',
-
-    'compressor',
     'widget_tweaks',
     'debug_toolbar',
     'social_django',
@@ -69,9 +60,8 @@ INSTALLED_APPS = [
     ]
 )
 
-
-
 SITE_ID = 1
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -85,38 +75,20 @@ MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
-INTERNAL_IPS='127.0.0.1'
 
 ROOT_URLCONF = 'ecom.urls'
-OSCAR_INITIAL_ORDER_STATUS = 'Pending'
-OSCAR_INITIAL_LINE_STATUS = 'Pending'
-OSCAR_ORDER_STATUS_PIPELINE = {
-    'Pending': ('Being processed', 'Cancelled',),
-    'Being processed': ('Processed', 'Cancelled',),
-    'Cancelled': (),
-}
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(BASE_DIR, 'templates'),
-            os.path.join(BASE_DIR, 'templates/oscar'),
-            OSCAR_MAIN_TEMPLATE_DIR
-        ],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
-                'django.template.context_processors.i18n',
                 'django.contrib.messages.context_processors.messages',
-                'oscar.apps.search.context_processors.search_form',
-                'oscar.apps.promotions.context_processors.promotions',
-                'oscar.apps.checkout.context_processors.checkout',
-                'oscar.apps.customer.notifications.context_processors.notifications',
-                'oscar.core.context_processors.metadata',
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
                 'django.template.context_processors.media',
@@ -124,11 +96,6 @@ TEMPLATES = [
         },
     },
 ]
-
-AUTHENTICATION_BACKENDS = (
-    'oscar.apps.customer.auth_backends.EmailBackend',
-    'django.contrib.auth.backends.ModelBackend',
-)
 
 WSGI_APPLICATION = 'ecom.wsgi.application'
 
@@ -147,11 +114,8 @@ DATABASES = {
         'ATOMIC_REQUESTS': True,
     }
 }
-HAYSTACK_CONNECTIONS = {
-    'default': {
-        'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
-    },
-}
+
+
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -197,20 +161,13 @@ USE_L10N = True
 
 USE_TZ = True
 
-STATICFILES_DIRS = [
- os.path.join(BASE_DIR, "staticfiles")
-]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-
-
 MEDIA_ROOT = 'images'
 MEDIA_URL = '/images/'
-OSCAR_MISSING_IMAGE_URL = MEDIA_URL + 'image_not_found.jpg'
 
 from oscar import OSCAR_MAIN_TEMPLATE_DIR
 
@@ -286,8 +243,9 @@ SOCIAL_AUTH_TWITTER_SECRET='1FaBXg61P7FSnni2J8K7qW8wQbGEtMa5lWTk1McK3NwU1wqxjE'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '827879310382-ke2n56sn653r2e6omebjcakvm51aqhdc.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'cJTONdJreMrLf8wkvvlqXbIS'
 
-SOCIAL_AUTH_INSTAGRAM_KEY = 'c10e3122ede647fba41f47768b7be106'
-SOCIAL_AUTH_INSTAGRAM_SECRET = '29bd8d9cac1f4d9fb84e45a1517fe13e'
+SOCIAL_AUTH_INSTAGRAM_KEY = '0e0604c437dc41409a31f39fa1251496'
+SOCIAL_AUTH_INSTAGRAM_SECRET = 'd44f5e349fa74a53b5f6302eae43347d'
+# SOCIAL_AUTH_INSTAGRAM_REDIRECT_URI = 'http://localhost:8000/oauth/complete/instagram'
 
 # STRIPE PAYMENTS
 STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY", "pk_test_gYIZf6nxtoniU4MoeDp1pxIO")

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
-
-{% load i18n %}
 {% load category_tags %}
+{% load i18n %}
 <html>
 
 <html lang="{{ LANGUAGE_CODE|default:"en-gb" }}" class="no-js lt-ie9 lt-ie8 lt-ie7">
@@ -37,10 +36,12 @@
         border: 0;
         box-shadow: none;
     }
+    ul li{
+  display: inline;
+}
 </style>
 </head>
 <body>
-{% block header %}
         <div class="container">
 
             <div class="row">
@@ -52,7 +53,7 @@
 
                             <li>
 
-                                <a href="{% url 'social:begin' 'facebook' %}" class="facebook" style="padding-left: 200px"></a> OR <a href="{% url 'customer:login' %}">Login</a>
+                                <a href="{% url 'social:begin' 'facebook' %}"><button class="fconnect">fconnect</button></a> OR <a href="{% url 'customer:login' %}">Login</a>
 
                             </li>
                         {% endif %}
@@ -64,39 +65,14 @@
                         <li>|</li>
 
                         <li><button class="cartbutt" type="button"><a href="{% url 'basket:summary' %}">My Cart</a></button></li>
-
-                        <li>|</li>
-
-                        <li><a href="/accounts/wishlists/c1390c/">Wishlist</a></li>
-
-
-                        {#                        <li>#}
-                        {##}
-                        {#                              Currency:#}
-                        {##}
-                        {#                              <div class="topselect">#}
-                        {##}
-                        {#                                <select>#}
-                        {##}
-                        {#                                    <option>KD</option>#}
-                        {##}
-                        {#                                    <option>USD</option>#}
-                        {##}
-                        {#                                    <option>AUD</option>#}
-                        {##}
-                        {#                                    <option>EUR</option>#}
-                        {##}
-                        {#                                </select>#}
-                        {##}
-                        {#                              </div>#}
-                        {##}
-                        {#                        </li>#}
                         {% if user.is_staff or perms.partner.dashboard_access %}
                              <li>|</li>
                             <li><a href="{% url 'dashboard:index' %}"><i class="icon-list-ul"></i>Dashboard</a></li>
                         {% endif %}
 
                         {% if user.is_authenticated %}
+                            <li>|</li>
+                            <li><a href="/accounts/wishlists/c1390c/">Wishlist</a></li>
                             <li>|</li>
                             <li><a id="logout_link" href="{% url 'customer:logout' %}"><b class="logout">Logout</b></a></li>
 
@@ -147,9 +123,6 @@
 
                         </li>
 
-                        <li>|</li>
-
-                        <li class="arabictxt"><a href="#">عربى</a></li>
 
                     </ul>
 
@@ -159,38 +132,20 @@
 
         </div>
 
-
-
-
         <div class="container shadow">
-
-
-
-
-
             <div class="row">
-
                 <div class="span12 headrow">
-
                     <div class="row">
-
                         <div class="span2">
-
                             <div class="logo"><a href="{% url 'catalogue:index' %}"><img src="{% static '/img/logo.png' %}" alt="Tedallal"/></a></div>
-
                         </div>
-
                         <div class="span10">
-
                             <div class="navbarwrap">
-
                                     <div class="navbar">
 
                                         <div class="navbar-inner">
 
                                             <div class="container">
-
-
 
                                                 <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
 
@@ -199,15 +154,8 @@
                                                 <span class="icon-search"></span>
 
                                                 </a>
-
-
-
                                                 <!-- Be sure to leave the brand out there if you want it shown -->
-
-
-
                                                 <!-- Everything you want hidden at 940px or less, place within here -->
-
                                                 <ul class="nav">
 
                                                     <li><a href="{% url 'catalogue:index' %}">Home</a></li>
@@ -230,48 +178,47 @@
                                                                         {% endfor %}
                                                                     {% endif %}
                                                         </ul>
-
                                                     </li>
 
                                                     <li class="divider-vertical"></li>
 
-                                                    <li class="dropdown">
+                                                    <!--<li class="dropdown">-->
 
-                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Brands</a>
+                                                        <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Brands</a>-->
 
-                                                        <ul class="dropdown-menu">
+                                                        <!--<ul class="dropdown-menu">-->
 
-                                                            <li>
+                                                            <!--<li>-->
 
-                                                                <ul>
+                                                                <!--<ul>-->
 
-                                                                    <li><a href="#">Brand 1</a></li>
+                                                                    <!--<li><a href="#">Brand 1</a></li>-->
 
-                                                                    <li><a href="#">Brand 2</a></li>
+                                                                    <!--<li><a href="#">Brand 2</a></li>-->
 
-                                                                    <li><a href="#">Brand 3</a></li>
+                                                                    <!--<li><a href="#">Brand 3</a></li>-->
 
-                                                                    <li><a href="#">Brand 4</a></li>
+                                                                    <!--<li><a href="#">Brand 4</a></li>-->
 
-                                                                </ul>
+                                                                <!--</ul>-->
 
-                                                                <ul class="rightdropmenu">
+                                                                <!--<ul class="rightdropmenu">-->
 
-                                                                    <li><a href="#">Brand 5</a></li>
+                                                                    <!--<li><a href="#">Brand 5</a></li>-->
 
-                                                                    <li><a href="#">Brand 6</a></li>
+                                                                    <!--<li><a href="#">Brand 6</a></li>-->
 
-                                                                    <li><a href="#">Brand 7</a></li>
+                                                                    <!--<li><a href="#">Brand 7</a></li>-->
 
-                                                                    <li><a href="#">Brand 8</a></li>
+                                                                    <!--<li><a href="#">Brand 8</a></li>-->
 
-                                                                </ul>
+                                                                <!--</ul>-->
 
-                                                            </li>
+                                                            <!--</li>-->
 
-                                                        </ul>
+                                                        <!--</ul>-->
 
-                                                    </li>
+                                                    <!--</li>-->
 
                                                     <li class="divider-vertical"></li>
 
@@ -282,62 +229,40 @@
                                                <!-- .nav, .navbar-search, .navbar-form, etc -->
 
                                                        <form method="get" action="{% url 'search:search' %}" class="navbar-search pull-right">
-
                                                                {{ search_form.q }}
-
                                                                <select name="categories" class="cform">
-
-                                                                   <option value="1">All Categories</option>
-
-                                                                   <option value="2">Saiful Leon</option>
-
-                                                                   <option value="3">Ismail Hossain</option>
-
-                                                                   <option value="4">Akkas Ali</option>
-
-                                                                   <option value="5">Arnold Jackson</option>
+                                                                            <option value="1">All Categories</option>
+                                                                   {% category_tree as tree_categories %}
+                                                                    {% if tree_categories %}
+                                                                        {% for tree_category, info in tree_categories %}
+                                                                            <option value="{{ tree_category.id }}">
+                                                                                    {{ tree_category.name }}
+                                                                            </option>
+                                                                        {% endfor %}
+                                                                    {% endif %}
 
                                                                </select>
-
-
-
-
-
-
                                                             <input type="submit" class="nav-searchbutt" value="{% trans "Search" %}" class="btn btn-default" />
-
                                                        </form>
-
                                                </div>
-
-
-
                                             </div>
-
                                         </div>
-
                                     </div>
-
                             </div>
-
                         </div>
-
                     </div>
-
-
-
                     <div class="row">
 
                         <div class="span10 offset2">
-
-                            <div class="bcrumb">
-
-                                <a href="#">Home</a> / <a href="#"><span class="bcrumbtxtlarge">Computers &AMP; Tablets</span></a>
-
-                            </div>
-
+                                {% block breadcrumbs %}
+                                    <ul type="none" class="bcrumb">
+                                        <li>
+                                            <a href="{{ homepage_url }}">{% trans "Home" %}</a>
+                                        </li>
+                                        <li><a href="{{ category.get_absolute_url }}">/ {{ category.name }}</a></li>
+                                    </ul>
+                                {% endblock breadcrumbs %}
                         </div>
-
                     </div>
 
                 </div>
@@ -346,7 +271,7 @@
 
             <div class="row maincurve"><div class="span12"></div></div>
 
-{% endblock %}
+
 
             <!--*********************************************** main content area ************************************ -->
 
@@ -355,7 +280,6 @@
 
 
             <!--***************************************************** footer ************************************ -->
-{% block footer %}
 
             <div class="row">
 
@@ -541,6 +465,6 @@
 	</script>
 <!-----------------------------------------------Javascript----------------------------------------------------->
 
-{% endblock %}
+
 </body>
 </html>
