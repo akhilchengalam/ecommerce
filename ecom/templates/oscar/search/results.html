@@ -1,13 +1,11 @@
-
 {% extends "base1.html" %}
->>>>>>> 952816f4e2dd9c0452c627ce3ef16290142a4994
 {% load currency_filters %}
 {% load thumbnail %}
 {% load product_tags %}
+{% load category_tags %}
 {% load i18n %}
 {%  load staticfiles %}
 {% block content %}
-
 
 
     <!--*********************************************** main content area ************************************ -->
@@ -22,8 +20,17 @@
                     </a></b>
                 </div>
                 <div id="collapseOne" class="accordion-body collapse in">
-                    <ul>
-                        tt
+                    <ul type="none">
+                        {% category_tree as tree_categories %}
+                        {% if tree_categories %}
+                            {% for tree_category, info in tree_categories %}
+                                <li>
+                                    <a href="{{ tree_category.get_absolute_url }}">
+                                        {{ tree_category.name }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        {% endif %}
                     </ul>
                 </div>
             </div>
@@ -120,4 +127,5 @@
 {#                    </div>#}
         </div>
     </div>
+</div>
 {% endblock %}

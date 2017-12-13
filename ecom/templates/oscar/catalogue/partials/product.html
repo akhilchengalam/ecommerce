@@ -6,33 +6,20 @@
 
 {% block product %}
 
-    <article class="product_pod">
+    <article class="product_pod" >
         {% block product_image %}
-            <div >
-                {# Primary : {{ product.primary_image.original  }}#}
-{#                {% if product.primary_image.original.url   %}#}
-                    {% with image2=product.primary_image %}
-                        {% if image2.original.url %}
-                            {% thumbnail image2.original "x155" upscale=False as thumb %}
-                                <a href="{{ product.get_absolute_url }}">
-                                        <img src="{{ thumb.url }}"
-                                         alt="{{ product.get_title }}" class="thumbnail"></a>
-                            {% endthumbnail %}
-                        {% else %}
-                             <a href="{{ product.get_absolute_url }}">
-                                <img src="images/image_not_found.jpg"
-                                         alt="{{ product.get_title }}" class="thumbnail"></a>
-                        {% endif %}
-                    {% endwith %}
-
-{#                {% endif %}#}
-
+            <div align="center">
+                {% with image=product.primary_image %}
+                    {% thumbnail image.original "x155" upscale=False as thumb %}
+                        <a href="{{ product.get_absolute_url }}"><img align="center" src="{{ thumb.url }}" alt="{{ product.get_title }}" class="thumbnail"></a>
+                    {% endthumbnail %}
+                {% endwith %}
             </div>
         {% endblock %}
 
         {% block product_review %}
             {% iffeature "reviews" %}
-                <p class="star-rating {{ product.rating|as_stars }}">
+                <p class="star-rating {{ product.rating|as_stars }}" align="center">
                     <i class="icon-star"></i>
                     <i class="icon-star"></i>
                     <i class="icon-star"></i>
@@ -43,13 +30,11 @@
         {% endblock %}
 
         {% block product_title %}
-            <h3><a href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">
-                {{ product.get_title|truncatewords:4 }}
-            </a></h3>
+            <h4 align="center"><a href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">{{ product.get_title|truncatewords:4 }}</a></h4>
         {% endblock %}
 
         {% block product_price %}
-            <div class="product_price">
+            <div class="product_price" align="center">
                 {% include "catalogue/partials/stock_record.html" %}
 {#                {% if not product.is_parent %}#}
 {#                    {% include "catalogue/partials/add_to_basket_form_compact.html" %}#}
