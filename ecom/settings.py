@@ -104,7 +104,7 @@ WSGI_APPLICATION = 'ecom.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'dc97qmq7tvu6h6',
         'USER': 'tvvjzwoyhbjket',
         'PASSWORD': '19d410bc083e32cb877ffc46be9cd455d9edd821f2b417f5f3fd39d848a85310',
