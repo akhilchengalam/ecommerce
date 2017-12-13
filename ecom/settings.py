@@ -104,11 +104,11 @@ WSGI_APPLICATION = 'ecom.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db.sqlite3',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
+        'NAME': 'dc97qmq7tvu6h6',
+        'USER': 'tvvjzwoyhbjket',
+        'PASSWORD': '19d410bc083e32cb877ffc46be9cd455d9edd821f2b417f5f3fd39d848a85310',
+        'HOST': 'ec2-54-83-40-208.compute-1.amazonaws.com',
+        'PORT': '5432',
         'ATOMIC_REQUESTS': True,
     }
 }
@@ -191,6 +191,10 @@ TEMPLATES = [
                 'oscar.apps.checkout.context_processors.checkout',
                 'oscar.apps.customer.notifications.context_processors.notifications',
                 'oscar.core.context_processors.metadata',
+                'django.template.context_processors.debug',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
+                'django.template.context_processors.media',
             ],
         },
     },
