@@ -70,10 +70,11 @@
                         {% if user.is_staff or perms.partner.dashboard_access %}
                              <li>|</li>
                             <li><a href="{% url 'dashboard:index' %}"><i class="icon-list-ul"></i>Dashboard</a></li>
+                            <li>|</li>
                         {% endif %}
 
                         {% if user.is_authenticated %}
-                            <li>|</li>
+
                                <li>
                                    {% with wishlists=user.wishlists.all %}
                                    {% for wishlist in wishlists %}
