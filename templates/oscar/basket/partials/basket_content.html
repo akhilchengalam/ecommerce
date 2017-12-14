@@ -47,7 +47,7 @@
                                         {% endwith %}
 
 
-                                    <td style="font-weight: bold">    <a href="{{ product.get_absolute_url }}">{{ line.description }}5u6ru7t</a></td>
+                                    <td style="font-weight: bold">    <a href="{{ product.get_absolute_url }}">{{ line.description }}</a></td>
 
                                     {% if form.errors %}error{% endif %}
                                     <td>
@@ -94,8 +94,11 @@
                                         </div>
 
 
-                                        <td><a href="#"><img src="{% static 'img/delete.png' %}" class="ico" alt="img"></a><a href="#"><img src="{% static 'img/save.png' %}" class="ico"></a></td>
-                                        
+                                        <td>
+                                            <a href="#" data-id="{{ forloop.counter0 }}" data-behaviours="remove" class="inline"><img src="{% static 'img/delete.png' %}" class="ico" alt="img"></a>
+                                            <a href="#" data-id="{{ forloop.counter0 }}" data-behaviours="save" class="inline"><img src="{% static 'img/save.png' %}" class="ico"></a>
+                                        </td>
+
 
                                     </div>
 
