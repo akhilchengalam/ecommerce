@@ -32,9 +32,7 @@
                         <div id="wowslider-container1" style="padding-left: 40px">
                             {% include "catalogue/partials/gallery.html" %}
                         </div>
-
                         <div class="innerwrap vertslider">
-
                             <!-- Start WOWSlider.com BODY section -->
 
                             <div id="wowslider-container1">
@@ -60,11 +58,11 @@
                         </div>
                         <!------------------------------------END IMAGE----------------------------------->
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
+        {% recently_viewed_products current_product=product %}
         {% block product_review %}
     {% endblock %}
 {% endblock %}
