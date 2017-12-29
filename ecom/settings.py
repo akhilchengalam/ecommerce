@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'social_django',
     'whitenoise',
+    'applications.subscription',
 
 
 
@@ -53,7 +54,8 @@ INSTALLED_APPS = [
         'applications.customer',
         'applications.promotions',
         'applications.catalogue',
-        'applications.checkout'
+        'applications.checkout',
+        'applications.dashboard.catalogue'
     ]
 )
 
@@ -61,6 +63,7 @@ SITE_ID = 1
 
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -70,7 +73,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'oscar.apps.basket.middleware.BasketMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
@@ -242,3 +244,8 @@ SOCIAL_AUTH_INSTAGRAM_SECRET = 'd44f5e349fa74a53b5f6302eae43347d'
 # STRIPE PAYMENTS
 STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY", "pk_test_gYIZf6nxtoniU4MoeDp1pxIO")
 STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", "sk_test_WavMdrbcZ0wKVPESux9si1Vc")
+
+
+DEFAULT_FROM_EMAIL='tedallalecom@gmail.com'
+
+DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False,}

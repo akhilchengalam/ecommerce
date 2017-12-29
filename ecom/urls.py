@@ -26,8 +26,7 @@ urlpatterns = [
     # Nonetheless, it's often useful for debugging.
     url(r'^admin/', include(admin.site.urls)),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
-    # url(r'^accounts/', include('allauth.urls')),
-
+    url(r'^newsletter/', include('applications.subscription.urls')),
     url(r'', include(application.urls)),
 ]+ static(ecom.settings.MEDIA_URL, document_root=ecom.settings.MEDIA_ROOT)
 
