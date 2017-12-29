@@ -43,7 +43,7 @@ class ProductDetailView(DetailView):
         q = self.model._default_manager.get(pk=int(pk))
         print(q,'####################################')
         q1=ProductCategory._default_manager.filter(product_id=self.kwargs['pk'])
-        print(q1[0].category_id,"*****************************")
+        print(q1.values(),"*****************************")
 
         redirect = self.redirect_if_necessary(request.path, product)
         if redirect is not None:
@@ -74,7 +74,8 @@ class ProductDetailView(DetailView):
         ctx = super(ProductDetailView, self).get_context_data(**kwargs)
         ctx['alert_form'] = self.get_alert_form()
         ctx['has_active_alert'] = self.get_alert_status()
-        ctx['related'] = ProductCategory._default_manager.filter(product_id=self.kwargs['pk'])
+        q3 = ProductCategory._default_manager.filter(product_id=self.kwargs['pk'])
+        ctx['related'] = q3[0]
         return ctx
 
     def get_alert_status(self):
