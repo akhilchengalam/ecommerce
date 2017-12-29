@@ -1,0 +1,17 @@
+<form method='post' class="form-inline" id="newsletter" required='required' action="/newsletter/newsletter/" onsubmit="return false;">
+<label for="inputlg">Email</label><br />bfdbzdfbdfgbdfbdfbzdf
+    {% csrf_token %}
+    <!-- Loaded Ajax Form -->
+    <script>{{ msg }}</script>
+      <div class="input-group" style="cursor:pointer;">
+        <input type="email" class="form-control input-lg" name="email" maxlength="254" id="id_email" required />
+        <button type="submit" id="submit_form">Subscribe</button>
+          {% if message %}
+            {{ msg }}
+          {% endif %}
+      </div>
+    </form>
+
+<!-- - - - - - - - - AUTO GENERATED FORM - - - - - - - - -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
+       type="text/javascript"></script>

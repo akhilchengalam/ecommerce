@@ -1,0 +1,101 @@
+
+{% load static %}
+
+<!-- Page Content -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Subscription | Ecom</title>
+
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+    <script src="{% static '/js/jquery.min.js' %}"></script>
+    <script src="{% static '/js/bootstrap.min.js' %}"></script>
+
+    <style>
+        .bluebutt {
+
+	cursor: pointer;
+
+	outline: none;
+
+	position: relative;
+
+	-webkit-transition: all 0.3s;
+
+	-moz-transition: all 0.3s;
+
+	transition: all 0.3s;
+
+	z-index: 999;
+
+	overflow: hidden; /*-----*/
+
+	border:1px solid transparent; border-radius: 3px;
+
+    margin: 10px 5px 5px 0;
+
+    padding:6px 30px;
+
+    color:white;
+
+    background-color: #579AE9;
+
+    font-size: 15px;
+
+    text-shadow: 1px 1px 1px #1168C7;
+
+    background-image:
+
+        linear-gradient(
+
+        180deg,
+
+        #5C9BEB 0%,
+
+        #3D87DE 50%,
+
+        #1168C7 100%
+
+        );
+
+    background-repeat: repeat-x;
+
+}
+    </style>
+
+    </head>
+    <body class='shade'>
+
+        <hr>
+            <div class="container-fluid">
+                <div style="background-color: #66b3ff; height: 70px;" class="span12">
+                    <h2 align="center" style="color: #ffffff">Ecom</h2>
+                </div>
+
+                <div style="background-color: #ffffff">
+                    <h2>Hey,</h2>
+                    <h3>Checkout this new product!!!</h3>
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <h1 style="color: #007CFF" align="center">{{instance.title}}</h1>
+                        </div>
+                    </div>
+                    <div align="center">
+                        {% autoescape off %}
+                            <p style="color: #007CFF"><i>{{ instance.description }}</i></p>
+                        {% endautoescape %}
+                        <a href="http://localhost:8000/catalogue/{{ instance.title }}_{{ instance.id }}" title="{{ product.get_title }}">
+                            <button class="bluebutt">View</button>
+                        </a>
+                    </div>
+
+
+                </div><br /><br />
+                <div style="background-color: #cce6ff; height: 40px;">
+
+                </div>
+            </div>
+        </body>
+        </html>

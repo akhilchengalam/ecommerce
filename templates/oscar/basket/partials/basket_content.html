@@ -95,8 +95,13 @@
 
 
                                         <td>
-                                            <a href="#" data-id="{{ forloop.counter0 }}" data-behaviours="remove" class="inline"><img src="{% static 'img/delete.png' %}" class="ico" alt="img"></a>
-                                            <a href="#" data-id="{{ forloop.counter0 }}" data-behaviours="save" class="inline"><img src="{% static 'img/save.png' %}" class="ico"></a>
+                                            <a href="#" data-id="{{ forloop.counter0 }}" data-behaviours="remove" class="inline"><img src="{% static 'img/delete.png' %}" class="ico" alt="Remove"></a>
+                                            <a href="#" data-id="{{ forloop.counter0 }}" data-behaviours="save" class="inline"><img src="{% static 'img/save.png' %}" class="ico" alt="Save"></a>
+
+                                            <div style="display:none">
+                                                {{ form.save_for_later }}
+                                                {{ form.DELETE }}
+                                            </div>
                                         </td>
 
 
@@ -119,7 +124,7 @@
 
                                 <div class="btn-group">
 
-                                    <a class="graybutt  voucherbutt dropdown-toggle" data-toggle="dropdown" href="#"> I have a voucher code </a>
+                                    <a class="graybutt voucherbutt dropdown-toggle" data-toggle="dropdown" href="#"> I have a voucher code </a>
 
                                     <ul class="dropdown-menu">
 
@@ -139,13 +144,8 @@
 
                         </div>
 
-
-
                         <div class="span6 offset2" style="float: right">
-
                             <div class="innerwrap">
-
-
                                 {% block baskettotals %}
 
                                     <!--<div class="sub-header">-->

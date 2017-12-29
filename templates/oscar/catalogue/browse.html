@@ -85,25 +85,25 @@
 {#            </p>#}
 {#        {% endif %}#}
 {#    </form>#}
-   <div style="background-color: #ffffff">
-   <br />
-{#   <strong style="font-size: 30px; padding-left: 30px">All Products</strong><div style="height: 20px; "></div>#}
+<div style="background-color: #ffffff">
+    <br />
+    <!--<h3 style="font-size: 30px; padding-left: 30px">All Products</h3><div style="height: 20px; "></div>-->
     {% if products %}
-        <section>
-            <div class="row">
+    <section>
+        <div class="row">
 
-                 <ul type="none">
-                    {% for product in products %}
-                        <div style="width: 200px; height: 270px; display: inline-block; padding-left: 30px">
-                            <li class="col-xs-6 col-sm-4 col-md-3 col-lg-3" style="padding-left: 70px">{% render_product product %}</li>
-                        </div>
-                    {% endfor %}
-                </ul>
-                {% include "partials/pagination.html" %}
-            </div>
-        </section>
+            <ul type="none">
+                {% for product in products %}
+                <div style="width: 200px; height: 270px; display: inline-block; padding-left: 30px">
+                    <li class="col-xs-6 col-sm-4 col-md-3 col-lg-3" style="padding-left: 70px">{% render_product product %}</li>
+                </div>
+                {% endfor %}
+            </ul>
+            {% include "partials/pagination.html" %}
+        </div>
+    </section>
     {% else %}
-        <p class="nonefound">{% trans "No products found." %}</p>
+    <p class="nonefound">{% trans "No products found." %}</p>
     {% endif %}
 </div>
 {% endblock content %}
