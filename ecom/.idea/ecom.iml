@@ -4,14 +4,22 @@
     <facet type="django" name="Django">
       <configuration>
         <option name="rootFolder" value="$MODULE_DIR$" />
+<<<<<<< HEAD
         <option name="settingsModule" value="settings.py" />
+=======
+        <option name="settingsModule" value="ecom/settings.py" />
+>>>>>>> bbc02ed6d95d60f39bf6b64e96e421f600449289
         <option name="manageScript" value="manage.py" />
       </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
+<<<<<<< HEAD
     <orderEntry type="inheritedJdk" />
+=======
+    <orderEntry type="jdk" jdkName="Python 3.4.3 virtualenv at ~/akhil/ecom/oscar" jdkType="Python SDK" />
+>>>>>>> bbc02ed6d95d60f39bf6b64e96e421f600449289
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">
