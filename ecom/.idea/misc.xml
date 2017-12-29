@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.4.3 virtualenv at ~/virtual/oscar/lib/python3.4/bin" project-jdk-type="Python SDK" />
+=======
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.4.3 virtualenv at ~/Desktop/Sayone/venv" project-jdk-type="Python SDK" />
+>>>>>>> bbc02ed6d95d60f39bf6b64e96e421f600449289
 </project>
 
