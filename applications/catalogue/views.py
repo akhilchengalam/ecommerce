@@ -74,7 +74,7 @@ class ProductDetailView(DetailView):
         ctx = super(ProductDetailView, self).get_context_data(**kwargs)
         ctx['alert_form'] = self.get_alert_form()
         ctx['has_active_alert'] = self.get_alert_status()
-        ctx['related'] =
+        ctx['related'] = ProductCategory._default_manager.filter(product_id=self.kwargs['pk'])
         return ctx
 
     def get_alert_status(self):
