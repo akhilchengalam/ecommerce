@@ -153,60 +153,32 @@
         {% endblock product_review %}
     {% endiffeature %}
 
-    {% with recommended_products=product.sorted_recommended_products|slice:":6" %}
-        {% if recommended_products %}
-            <div class="sub-header">
-                <h2>{% trans "Recommended items" %}</h2>
-            </div>
-            <ul class="row">
-                {% for product in recommended_products %}
-                <li class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-                    {% render_product product %}
-                </li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
-
+ <br /><br />
+         <div class="span11" style="border-top: solid;>
+                {% with recommended_products=product.sorted_recommended_products|slice:":6" %}
+                    {% if recommended_products %}
+                        <div class="sub-header span12">
+                            <h3>{% trans "Recommended items" %}</h3>
+                        </div>
+                        <ul class="row span11" type="none">
+                            {% for product in recommended_products %}
+                                <div style="width: 200px; height: 270px; display: inline-block; padding-left: 30px">
+                                    <li class="col-xs-6 col-sm-4 col-md-3 col-lg-3">{% render_product product %}</li>
+                                </div>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+         </div>
+<br/>
         {% recently_viewed_products current_product=product %}
 </div>
     </div>
 
 
-        {% category_tree as tree_categories %}
-        {% if tree_categories %}
-        <a href="{{ related.category_id.get_absolute_url }}">
-                Show Related Products
-        </a>
-        {% endif %}
-<!--<div id="related_product" hidden="hidden">-->
-<!--<ul class="dropdown-menu">-->
-    <!--{% category_tree as tree_categories %}-->
-    <!--{% if tree_categories %}-->
-    <!--{% for tree_category, info in tree_categories %}-->
-    <!--<li>-->
-        <!--<a href="{{ tree_category.get_absolute_url }}">-->
-            <!--{{ tree_category.name }}-->
-        <!--</a>-->
-    <!--</li>-->
-    <!--{% endfor %}-->
-    <!--{% endif %}-->
-<!--</ul>-->
-    <!--{% render_product product %}-->
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<!--<script>-->
-<!--$(document).ready(function(){-->
-    <!--$("#related").click(function(){-->
-        <!--$("#related_product").toggle();-->
-
-    <!--});-->
-    <!--$("#related").click(function () {-->
-      <!--$(this).text(function(i, text){-->
-          <!--return text === "Hide" ? "Show Related Products" : "Hide";-->
-      <!--})-->
-    <!--});-->
-<!--});-->
-<!--</script>-->
 
 {% endblock %}
