@@ -173,10 +173,13 @@
     </div>
 
 
-
-        <a href="#"><button type="submit" id="related" class="dropdown-toggle" data-toggle="dropdown">
-            Show Related Products</button></a>
-<div id="related_product" hidden="hidden">
+        {% category_tree as tree_categories %}
+        {% if tree_categories %}
+        <a href="{{ related.category_id.get_absolute_url }}">
+                Show Related Products
+        </a>
+        {% endif %}
+<!--<div id="related_product" hidden="hidden">-->
 <!--<ul class="dropdown-menu">-->
     <!--{% category_tree as tree_categories %}-->
     <!--{% if tree_categories %}-->
@@ -190,45 +193,20 @@
     <!--{% endif %}-->
 <!--</ul>-->
     <!--{% render_product product %}-->
-    1111111111111
-</div>
-
-
-<!--<div class="dropdown">-->
-
-    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories</a>-->
-
-    <!--<ul class="dropdown-menu">-->
-        <!--{% category_tree as tree_categories %}-->
-        <!--{% if tree_categories %}-->
-        <!--{% for tree_category, info in tree_categories %}-->
-        <!--{{tree_category}}-->
-        <!--<li>-->
-            <!--<a href="{{ tree_category.id.get_absolute_url }}">-->
-                <!--{{ related }}-->
-                <!--llll  {{ tree_category.id }}-->
-            <!--</a>-->
-        <!--</li>-->
-        <!--{% endfor %}-->
-        <!--{% endif %}-->
-    <!--</ul>-->
-<!--</div>-->
-
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<script>
-$(document).ready(function(){
-    $("#related").click(function(){
-        $("#related_product").toggle();
+<!--<script>-->
+<!--$(document).ready(function(){-->
+    <!--$("#related").click(function(){-->
+        <!--$("#related_product").toggle();-->
 
-    });
-    $("#related").click(function () {
-      $(this).text(function(i, text){
-          return text === "Hide" ? "Show Related Products" : "Hide";
-      })
-    });
-});
-</script>
+    <!--});-->
+    <!--$("#related").click(function () {-->
+      <!--$(this).text(function(i, text){-->
+          <!--return text === "Hide" ? "Show Related Products" : "Hide";-->
+      <!--})-->
+    <!--});-->
+<!--});-->
+<!--</script>-->
 
 {% endblock %}
