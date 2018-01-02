@@ -1,33 +1,17 @@
-<form method='post' class="form-inline" id="newsletter" required='required' action="/newsletter/newsletter/">
-<label for="inputlg">Email</label><br />
+<form method='post' class="form-inline" id="newsletter" required='required' action="/newsletter/newsletter/" onsubmit="return false;">
+<label for="inputlg">Email</label><br />bfdbzdfbdfgbdfbdfbzdf
     {% csrf_token %}
     <!-- Loaded Ajax Form -->
     <script>{{ msg }}</script>
       <div class="input-group" style="cursor:pointer;">
         <input type="email" class="form-control input-lg" name="email" maxlength="254" id="id_email" required />
         <button type="submit" id="submit_form">Subscribe</button>
+          {% if message %}
+            {{ msg }}
+          {% endif %}
       </div>
     </form>
 
 <!-- - - - - - - - - AUTO GENERATED FORM - - - - - - - - -->
-<script>
-
-$("#submit_form").click(function(){
-      $(".modal-footer").html('');
-      $.ajax( {url: '/newsletter/newsletter/',type:'post', data: $("#newsletter").serialize(),
-          success: function (body,status){
-                succ("STATUS : "+body);
-          }});
-
-      function succ(a){
-        a = "<div class='alert alert-info'>" + a + "</div>"
-        $(".modal-footer").html(a);
-        setTimeout(function() {
-            $(".modal-footer").html('');
-          }, 3000);
-
-      }
-
-});
-
-</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
+       type="text/javascript"></script>

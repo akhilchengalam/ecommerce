@@ -24,20 +24,20 @@ class SubscriberView(FormView):
             email_exist = Subscribers.objects.filter(email=email)
             if email_exist:
                 msg = 'You Are Already Subscribed To our NewsLetter.'
-                msg = "<div class='alert alert-info'><b>STATUS :</b> %s</div>"%(msg)
+                msg = "<div><b>STATUS :</b> %s</div>"%(msg)
             else:
                 newsubscriber = Subscribers()
                 newsubscriber.email = email
                 newsubscriber.is_active=True
                 newsubscriber.save()
                 msg = 'Successfully Subscribed!'
-                msg = "<div class='alert alert-success'><b>STATUS :</b> %s</div>"%(msg)
+                msg = "<div><b>STATUS :</b> %s</div>"%(msg)
             print(msg)
 
         else:
             print('form_invalid')
             msg="Invalid Email"
-            msg = "<div class='alert alert-danger'><b>STATUS :</b> %s</div>"%(msg)
+            msg = "<div><b>STATUS :</b> %s</div>"%(msg)
         return HttpResponse(msg)
 
     def get(self, request, *args, **kwargs):

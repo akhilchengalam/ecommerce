@@ -43,9 +43,17 @@
 </style>
 </head>
 <body>
-        <div class="container-fluid">
+
+
+        <div class="container shadow">
+
+
 
             <div class="row">
+                <div class="span12 headrow" style="color: #e6b800">
+
+
+                    <div class="row">
 
                 <div class="span12 topmenu hidden-phone">
 
@@ -86,6 +94,7 @@
 
                             <li>|</li>
                             <li><a id="logout_link" href="{% url 'customer:logout' %}"><b class="logout">Logout</b></a></li>
+                            <li>|</li>
 
                         {% endif %}
                     </ul>
@@ -141,14 +150,10 @@
 
             </div>
 
-        </div>
 
-        <div class="container shadow">
-            <div class="row">
-                <div class="span12 headrow">
                     <div class="row">
                         <div class="span2">
-                            <div class="logo"><a href="{% url 'catalogue:index' %}"><img src="{% static '/img/logo.png' %}" alt="Tedallal"/></a></div>
+                            <div class="logo" style="max-width: 100%; padding-left:30px; margin-top: -25px"><a href="{% url 'catalogue:index' %}"><img src="{% static '/img/logo.png' %}" alt="Tedallal"/></a></div>
                         </div>
                         <div class="span10">
                             <div class="navbarwrap">
@@ -401,7 +406,7 @@
                     <div class="modal-body">
                         <div id="message">  </div>
                         <div class="form-group" id="subscriber_form">
-                            <form method='post' class="form-inline" id="newsletter" required='required' action="/newsletter/newsletter/">
+                            <form method='post' onsubmit="return false;" class="form-inline" id="newsletter" required='required' action="/newsletter/newsletter/">
                                 <label for="inputlg">Email</label><br />
                                 {% csrf_token %}
                                 <!-- Loaded Ajax Form -->
@@ -450,31 +455,27 @@
 
         <!--=========== javascript call to execute==============-->
 
-        <script type="text/javascript">
+        <script>
 
-            $(document).ready(function(){
-                // LOAD FORM ON START
-                //  $.get('/widgets/subscribe/',function(data,status){ if(status == 'success'){  $('div#subscriber_form').html(data); } });
+$("#submit_form").click(function(){
+      $(".modal-footer").html('');
+      $.ajax( {url: '/newsletter/newsletter/',type:'post', data: $("#newsletter").serialize(),
+          success: function (body,status){
+                succ("STATUS : "+body);
+          }});
 
-                $("#submit_form").click(function(){
-                    $(".modal-footer").html('');
-                    $.ajax( {url: '/newsletter/newsletter/',type:'post', data: $("#newsletter").serialize(),
-                        success: function (body,status){
-                            succ(""+body);
-                        }});
+      function succ(a){
+        a = "<div class='alert alert-info'>" + a + "</div>"
+        $(".modal-footer").html(a);
+        setTimeout(function() {
+            $(".modal-footer").html('');
+          }, 3000);
 
-                    function succ(a){
-                        // a = "<div class='alert alert-info'>" + a + "</div>"
-                        $(".modal-footer").html(a);
-                        $("#id_email").val('');
-                        setTimeout(function() {
-                            $(".modal-footer").html('');
-                        }, 5000);
+      }
 
-                    }
+});
 
-                });
-        </script>
+</script>
 
 <!-----------------------------------------------Javascript----------------------------------------------------->
 
