@@ -16,4 +16,5 @@ node_modules/
 geos-3.3.9/
 postgis-2.1.8/
 whoosh_index/
+db.sqlite3
 
