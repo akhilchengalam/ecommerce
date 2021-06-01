@@ -45,5 +45,5 @@ sqlparse==0.2.4
 stripe==1.75.1
 text-unidecode==1.1
 Unidecode==0.4.21
-urllib3==1.22
+urllib3==1.26.5
 whitenoise==3.3.1
